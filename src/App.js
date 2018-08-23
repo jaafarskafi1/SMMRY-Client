@@ -43,14 +43,14 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <form onSubmit={this.handleSubmit}>
+        <form className="main-input" onSubmit={this.handleSubmit}>
           <label>
-            url:
-          <input type="text" value={this.state.value} onChange={this.handleChange} />
+            article URL:
+          <input className="input-box" type="text" value={this.state.value} onChange={this.handleChange} />
           </label>
-          <input type="submit" value="Submit" />
-          <div>{this.state.pleaseWait}</div>
-          <div>{this.state.summary}</div>
+          <input type="submit" value="Summarize Article" />
+          <div className="please-wait" >{this.state.pleaseWait}</div>
+          <div className="summary" >{this.state.summary}</div>
         </form>
       </div>
     );

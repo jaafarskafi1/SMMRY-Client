@@ -26,3 +26,15 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.main-input {
+  margin-top: 3em;
+}
+
+.input-box {
+  margin: 0.5em;
+}
+
+.summary, .please-wait {
+  padding: 1em;
+}
