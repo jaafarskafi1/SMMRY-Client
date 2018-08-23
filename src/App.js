@@ -25,7 +25,7 @@ class App extends Component {
     this.setState({
       pleaseWait: 'loading...'
     })
-    axios.get(`http://localhost:3005/api/summarize?url=${this.state.url}`)
+    axios.get(`/api/summarize?url=${this.state.url}`)
     .then(result => {
       this.setState({
         pleaseWait: '',
@@ -34,7 +34,8 @@ class App extends Component {
     })
     .catch((err) => {
       this.setState({
-        summary: 'could not summarize'
+        pleaseWait: '',
+        summary: 'error. could not summarize.'
       })
     })
     event.preventDefault();

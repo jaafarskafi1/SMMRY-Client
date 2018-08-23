@@ -16,7 +16,7 @@ app.use(express.static(path.resolve(__dirname, './build')));
 app.use('/api', router);
 router.get('/summarize', logic.summarize);
 
-let port = 3005;
+let port = process.env.port || 3000;
 
 
 app.listen(port, () => {
