@@ -1,23 +1,18 @@
 {
   "name": "tldr-articles",
-  "version": "1.0.0",
-  "description": "summarize articles",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/jaafarskafi1/tldr-articles.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/jaafarskafi1/tldr-articles/issues"
-  },
-  "homepage": "https://github.com/jaafarskafi1/tldr-articles#readme",
+  "version": "0.1.0",
+  "private": true,
   "dependencies": {
     "axios": "^0.18.0",
-    "dotenv": "^6.0.0"
+    "cors": "^2.8.4",
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2",
+    "react-scripts": "1.1.5"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
   }
 }

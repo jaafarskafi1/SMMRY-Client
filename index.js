@@ -1,22 +1,42 @@
-const axios = require('axios');
-const env = require('dotenv');
-const path = require('path');
-env.config({path: `${__dirname}/.env`});
+class Application extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      value: '',
+      summary: ''
+    };
 
-const summarize = async (url) => {
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
 
-  try {
-    const response = await axios.get(`https://api.smmry.com/?SM_API_KEY=${process.env.API_KEY}&SM_URL=${url}`)
-    if (response.data.sm_api_error > 0) {
-      throw new Error(`response returned an error: ${response.data.sm_api_message}`);
-    } else {
-      console.log(response.data.sm_api_content);
-    }
-  } catch (err) {
-    console.log(err);
+  handleChange(event) {
+    this.setState({
+      value: event.target.value
+    });
+  }
+
+  handleSubmit(event) {
+    // alert('A name was submitted: ' + this.state.value);
+    axios.get(`https://api.smmry.com/?SM_API_KEY=${process.env.API_KEY}&SM_URL=${this.state.url}`)
+    event.preventDefault();
+  }
+
+  render() {
+    return (
+      <form onSubmit={this.handleSubmit}>
+        <label>
+          url:
+          <input type="text" value={this.state.value} onChange={this.handleChange} />
+        </label>
+        <input type="submit" value="Submit" />
+        <div>{this.state.summary}</div>
+      </form>
+    );
   }
 }
 
-let input = process.argv.slice(2).join(' ');
-
-summarize(input);
+/*
+ * Render the above component into the div#app
+ */
+React.render(<Application />, document.getElementById("app"));
